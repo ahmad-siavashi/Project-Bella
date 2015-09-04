@@ -10,4 +10,4 @@ The idea was to use multicasting as the NAT traversal approach. So if you have y
 to pass multicast packets then you'll probably be able to see the computers beyond your subnet.
 Although the application works fine but the source code needs a complete revision for code readibility and optimization.
 
-![Alt text](/media/screenshot.png?raw=true)
+![Alt text](/screenshot.png?raw=true)
