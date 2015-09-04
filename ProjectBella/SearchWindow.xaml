@@ -1,0 +1,29 @@
+﻿<Window x:Class="PBellaP.SearchWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Search" Height="300" Width="400" Closed="Window_Closed_1">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="101"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="41"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button x:Name="btnSearch" Content="Search" Margin="10,9,10,0" VerticalAlignment="Top" Grid.Column="1" Height="22" Click="Search_Click"/>
+        <TextBox x:Name="txtSearch" Height="23" Margin="10,10,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <ListView x:Name="lstResults" ItemsSource="{Binding}" Margin="10" Grid.Column="0" Grid.Row="1">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" Width="69" DisplayMemberBinding="{Binding FileName}"/>
+                    <GridViewColumn Header="Size(KB)" Width="55" DisplayMemberBinding="{Binding FileSize}"/>
+                    <GridViewColumn Header="IP" Width="120" DisplayMemberBinding="{Binding IPAddr}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="btnGet" Click="Get_Click" Content="Get" Grid.Column="1" Margin="10,10,10,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <TextBlock Grid.Column="1" Margin="10,37,15,0" Grid.Row="1" TextWrapping="Wrap" Text="In # Parts" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtParts" Grid.Column="1" Height="23" Margin="10,58,10,0" Grid.Row="1" TextWrapping="Wrap" Text="1" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

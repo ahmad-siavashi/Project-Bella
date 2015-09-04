@@ -1,0 +1,40 @@
+﻿<Window x:Class="ProjectX.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Bella" Height="350" Width="525" Closing="Window_Closing_1">
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="184*"/>
+            <ColumnDefinition Width="333*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="19*"/>
+            <RowDefinition Height="301*"/>
+        </Grid.RowDefinitions>
+        <Menu IsMainMenu="True" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2">
+            <MenuItem Header="Share" >
+                <MenuItem Header="File Sharing" Click="ShareFile_Menu"/>
+                <MenuItem Header="Search For a File" Click="Search_Menu" />
+            </MenuItem>
+            <MenuItem Header="About" Click="About_Menu" />
+        </Menu>
+        <ListView Grid.Row="1" x:Name="lstAvailableHosts" SelectionChanged="lstAvailableHosts_SelectionChanged_1" ItemsSource="{Binding UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Margin="10">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" Width="100"  DisplayMemberBinding="{Binding Name}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView Grid.Row="1" x:Name="lstDetails" ItemsSource="{Binding}" Margin="10" MouseDoubleClick="lstDetails_MouseDoubleClick" Grid.Column="1">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="IP Address" Width="120" DisplayMemberBinding="{Binding Address}"/>
+                    <GridViewColumn Header="Port" Width="60" DisplayMemberBinding="{Binding Port}" />
+                    <GridViewColumn Header="Last Seen" Width="120" DisplayMemberBinding="{Binding LastSeen}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</Window>

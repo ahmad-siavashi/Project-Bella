@@ -1,0 +1,40 @@
+﻿<Window x:Class="ProjectX.ConnectionReceiveWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Received Connection" Height="394.6" Width="397.881" Closing="Window_Closing_1">
+    <Grid Margin="0,0,2,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="71"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15"/>
+            <ColumnDefinition Width="63"/>
+            <ColumnDefinition Width="22"/>
+            <ColumnDefinition Width="79*"/>
+            <ColumnDefinition Width="46"/>
+            <ColumnDefinition Width="74*"/>
+            <ColumnDefinition Width="15*"/>
+        </Grid.ColumnDefinitions>
+        <GroupBox Header="File Transform Completion" Grid.ColumnSpan="7" Margin="10,0,10,10" Grid.Row="1">
+            <ProgressBar x:Name="progressBar" Height="19" Margin="8,12,8,0" VerticalAlignment="Top"/>
+        </GroupBox>
+        <GroupBox Grid.ColumnSpan="7" Margin="10,0,10,10" Grid.Row="2" Header="Received Files" />
+        <ListView x:Name="lstReceived" ItemsSource="{Binding}" Grid.ColumnSpan="3" Grid.Column="3" Margin="10,22,10,20" Grid.Row="2">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" Width="180" DisplayMemberBinding="{Binding Name}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Merge" Margin="5,0,0,20" Grid.Row="2" Click="Button_Click_1" Grid.ColumnSpan="2" Height="22" VerticalAlignment="Bottom" Grid.Column="1"/>
+        <GroupBox Header="Peer Info" Margin="10" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="7" />
+        <TextBlock Margin="9,36,0,23" TextWrapping="Wrap" Grid.Column="4" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="101"><Run Text="Port: "/><InlineUIContainer>
+        		<TextBlock x:Name="port" TextWrapping="Wrap" Text="-" Margin="5,0,0,0"/>
+        	</InlineUIContainer></TextBlock>
+        <TextBlock Margin="10,36,0,23" TextWrapping="Wrap" Grid.ColumnSpan="3" Grid.Column="1" HorizontalAlignment="Left" Width="144"><Run Text="IP: "/><InlineUIContainer>
+        		<TextBlock x:Name="ip" TextWrapping="Wrap" Text="-" Margin="5,0,0,0"/>
+        	</InlineUIContainer></TextBlock>
+    </Grid>
+</Window>
